@@ -1,0 +1,378 @@
+Reference Example:
+https://blog.csdn.net/andycpp/article/details/1327147/
+
+首先新建一个项目叫JUnit_Test，我们编写一个Calculator类，这是一个能够简单实现加减乘除、平方、开方的计算器类，然后对这些功能进行单元测试。这个类并不是很完美，我们故意保留了一些Bug用于演示，这些Bug在注释中都有说明。该类代码如下：
+
+package andycpp;
+
+public class Calculator {
+    private static int result; // 静态变量，用于存储运行结果
+    public void add(int n) {
+        result = result + n;
+    }
+    public void substract(int n) {
+        result = result - 1;  //Bug: 正确的应该是 result =result-n
+    }
+    public void multiply(int n) {
+    }         // 此方法尚未写好
+    public void divide(int n) {
+        result = result / n;
+    }
+    public void square(int n) {
+        result = n * n;
+    }
+    public void squareRoot(int n) {
+        for (; ;) ;            //Bug : 死循环
+    }
+    public void clear() {     // 将结果清零
+        result = 0;
+    }
+    public int getResult() {
+        return result;
+    }
+}
+
+第二步，将JUnit4单元测试包引入这个项目：在该项目上点右键，点“属性”，如图：
+
+在弹出的属性窗口中，首先在左边选择“Java Build Path”，然后到右上选择“Libraries”标签，之后在最右边点击“Add Library…”按钮，如下图所示：
+
+
+然后在新弹出的对话框中选择JUnit4并点击确定，如上图所示，JUnit4软件包就被包含进我们这个项目了。
+
+  第三步，生成JUnit测试框架：在Eclipse的Package Explorer中用右键点击该类弹出菜单，选择“New à JUnit Test Case”。如下图所示：
+
+
+在弹出的对话框中，进行相应的选择，如下图所示：
+
+
+  点击“下一步”后，系统会自动列出你这个类中包含的方法，选择你要进行测试的方法。此例中，我们仅对“加、减、乘、除”四个方法进行测试。如下图所示：
+
+
+之后系统会自动生成一个新类CalculatorTest，里面包含一些空的测试用例。你只需要将这些测试用例稍作修改即可使用。完整的CalculatorTest代码如下：
+
+
+
+package andycpp;
+
+import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+
+public class CalculatorTest {
+
+    private static Calculator calculator = new Calculator();
+    
+    @Before
+    public void setUp() throws Exception {
+        calculator.clear();
+    }
+
+    @Test
+    public void testAdd() {
+        calculator.add(2);
+        calculator.add(3);
+        assertEquals(5, calculator.getResult());
+    }
+
+    @Test
+    public void testSubstract() {
+        calculator.add(10);
+        calculator.substract(2);
+        assertEquals(8, calculator.getResult());
+    }
+
+    @Ignore("Multiply() Not yet implemented")
+    @Test
+    public void testMultiply() {
+    }
+
+    @Test
+    public void testDivide() {
+        calculator.add(8);
+        calculator.divide(2);
+        assertEquals(4, calculator.getResult());
+    }
+}
+第四步，运行测试代码：按照上述代码修改完毕后，我们在CalculatorTest类上点右键，选择“Run As à JUnit Test”来运行我们的测试，如下图所示：
+
+
+
+运行结果如下：
+
+
+
+
+进度条是红颜色表示发现错误，具体的测试结果在进度条上面有表示“共进行了4个测试，其中1个测试被忽略，一个测试失败”
+
+            至此，我们已经完整体验了在Eclipse中使用JUnit的方法。在接下来的文章中，我会详细解释测试代码中的每一个细节！
+阅读更多
+文章标签： junit 单元测试 eclipse 测试 import exception
+个人分类： JAVA技术
+相关热词： eclipse和  在eclipse  eclipse闪  eclipse类  eclipse工
+上一篇使用Action创建一个JButton后，改变该按钮的名字可能会遇到意想不到的问题  下一篇在Eclipse中使用JUnit4进行单元测试（中级篇）
+区块链以太坊DApp开发为什么人才稀少？薪资到底有多高？
+区块链开发平均薪资是多少？快速学习区块链开发，掌握以太坊开发和智能合约应用。
+想对作者说点什么？ 我来说一句
+ qq_35146979
+酷酷的奇锋2018-06-29 16:35:44#66楼
+可以的
+yangwypy
+yangwypy2018-06-14 13:29:42#65楼
+很有帮助，谢谢
+chen_harvester
+chen_harvester2018-04-21 23:56:46#64楼
+很赞
+Bruski
+Bruski2018-04-01 09:45:17#63楼
+很棒，小白跟的很懂！
+lp15203883326
+巴黎没有欧莱雅你也不值得被拥有2018-03-27 13:52:53#62楼
+例子很好，感谢博主
+查看 67 条热评
+在 Eclipse 中使用 JUnit4 进行单元测试（图文教程一）
+ kl28978113
+
+ 6299
+
+原文：http://www.cnblogs.com/IvesHe/p/4468138.html?utm_source=tuicool&utm_medium=referral 在Eclipse中使用J...
+
+在Eclipse中使用JUnit4进行单元测试（实例篇）
+ dreamjava9213
+
+ 3104
+
+四、实例总结 1. 参数化测试 有时一个测试方法，不同的参数值会产生不同的结果，那么我们为了测试全面，会把多个参数值都写出来并一一断言测试，这样有时难免费时费力，这是我们便可以采用参数化测...
+
+JUnit之TestCase和TestSuite详解 - CSDN博客
+2018-7-17
+
+在进行单元测试的时候,在JUNIT4之前,我们需要测试的代码所在的类一般都需要直接或者间接继承自TestCase,对于我们创建的这个TestCase的子类,我们需要注意在我们这个类的...
+
+JUnit写TestCase - CSDN博客
+2018-6-14
+
+在junit中,Test、TestCase和TestSuite三者组成了composiste pattern。通过组装自己的TestSuite,可以完成对添加到这个TestSuite中的所有的TestCase的调用。而且这些定义的...
+
+
+Java单元测试工具：JUnit4（二）——JUnit使用详解
+ Zen99T
+
+ 1.9万
+
+这篇笔记记录JUnit使用的一些注意点，或者说约定俗成的地方；以及介绍了导致测试失败的两种情况。 1.JUnit使用的最佳实践 ①测试方法上必须使用@Test进行修饰 ...
+
+JUnit编写异常测试的Testcase - CSDN博客
+2018-6-9
+
+JUnit编写异常测试的Testcase2017年05月15日 17:58:03 阅读数:768 项目遇到需要编写单元测试,版本是junit4.10,来测试代码遇到的异常信息(如业务中出现的错误代码)...
+
+MyEclipse中使用Junit--Test Case - CSDN博客
+2018-6-30
+
+简单记录一下,在MyEclipse中使用Junit 的方法,这一部分先记 Test Case 的创建方法。 Test Case :是指对一个用例进行测试,比如说测试一个接口,对于接口来说,一...
+
+单元测试整理（一）——单元测试是什么，有什么好处
+ potatostyles
+
+ 1705
+
+单元测试是什么 单元测试是开发者编写的一小段代码，用于检验被测代码的一个很小的、很明确的功能是否正确，通常而言，一个单元测试是用于判断某个特定条件（或者场景）下某个特定函数的行为1。 单元测试...
+
+单元测试JUnit 4
+ hebbely
+
+ 311
+
+简述： 在实际项目开发中，都是需要写成千上万个方法或函数，这些函数的功能可能很强大，也可能是很小一个功能，但在程序中使用时都是需要经过测试的，保证这一部分功能是正确的。所以，每编写完一个函数之后，...
+
+Junit核心——测试类(TestCase)、测试集(TestSuite)、..._CSDN博客
+2018-7-18
+
+首先,把这三个定义简单的说明一下: 1、测试类(TestCase):一个包含一个或是多个测试的类,在Junit中就是指的是包含那些带有@Test注解的方法的类,同一样也被...
+
+Junit TestCase - CSDN博客
+2018-5-23
+
+ 1、将junit的jar包放在工程的classpath中2、创建Junit Test Case,其类继承自junit.framework.TestCase,选择要测试的类,点击“下一步”,选择...
+
+在Eclipse中使用JUnit4进行单元测试（中级篇）
+ andycpp
+
+ 6.8万
+
+我们继续对初级篇中的例子进行分析。初级篇中我们使用Eclipse自动生成了一个测试框架，在这篇文章中，我们来仔细分析一下这个测试框架中的每一个细节，知其然更要知其所以然，才能更加熟练地应用JUnit4...
+
+老中医说：男人多吃这个东西，时间延长5倍
+清檬管家 · 顶新
+单元测试TestCase类 - CSDN博客
+2018-7-8
+
+junit中的TestCase类,提供了多种断言的方法,assertEquals方法,assertEquals(Object expected,Object actual):根据equals()方法,如果expected和actual不相等则失败;否则...
+
+JUnit 介绍--- junit.framework.TestCase - CSDN博客
+2018-6-18
+
+JUnit的使用非常简单,共有3步:第一步、编写测试类,使其继承TestCase;第二步、编写测试方法,使用test+×××的方式来命名测试方法;第三步、编写断言。如果测试方...
+
+JAVA 单元测试总结
+ antony9118
+
+ 1.1万
+
+单元测试的重要性这里就不说了，直接进入正题。很多程序员不喜欢写单元测试，导致项目经常会花很多时间去debug，这完全得不偿失。对关键方法进行单元测试，可以在早期业务逻辑还没那么复杂的时候，尽快排除症结...
+
+Spring对Controller、Service、Dao进行Junit单元测试总结
+ u013041642
+
+ 2.6万
+
+Spring对Controller、Service、Dao进行Junit单元测试总结​ 所有用Junit进行单元测试，都需要下面的配置@RunWith(SpringJUnit4ClassRunne...
+
+junit test case和junit test suite有什么区别 - CSDN博客
+2018-6-13
+
+Junit核心——测试类(TestCase)、测试集(TestSuite)、测试运行器(TestRunner) ...测试框架,我们需要组织用例以及测试执行,这里博主推荐Python的标准库——unittest...
+
+junit.framework.TestCase - CSDN博客
+2018-7-16
+
+JUnit的使用非常简单,共有3步:第一步、编写测试类,使其继承TestCase;第二步、编写测试方法,使用test+×××的方式来命名测试方法;第三步、编写断言。如果测试方...
+
+java JUnit单元测试
+ fanyuwgy
+
+ 804
+
+实验课程名称：___软件工程基本实验____________                实验项目名称 单元测试 实验成绩   实...
+
+JUnit单元测试
+ fuzhongmin05
+
+ 4175
+
+软件测试有很多分类，从测试的方法上可分为：黑盒测试、白盒测试、静态测试、动态测试等；从软件开发的过程分为：单元测试、集成测试、确认测试、验收、回归等。 　　在众多的分类中，与开发人员关系最紧密的莫过于...
+
+JUnit单元测试框架的使用
+ mao520741111
+
+ 3.8万
+
+原文地址 http://www.open-open.com/lib/view/open1462177214142.html 我们写单元测试，一般都会用到一个或多个单元测试框架，在这里，我们介绍一...
+
+Spring整合Junit4进行单元测试
+ qq_32786873
+
+ 4.6万
+
+一.加入依赖包 使用spring的测试框架需要加入以下依赖包： JUnit 4 （官方下载：http://www.junit.org/） Spring Test （Spring框架中的test包） S...
+
+基于 JUnit 单元测试的原理及示例
+ qq_35246620
+
+ 5181
+
+1 简介JUnit是一个Java语言的单元测试框架，它由 Kent Beck 和 Erich Gamma 建立，逐渐成为 xUnit 家族中最为成功的一个。 JUnit有它自己的JUnit扩展生态圈，...
+
+
+Junit测试工具
+ sun_wangdong
+
+ 940
+
+Junit是一个开源的java单元测试框架。Junit设计非常小巧，但是功能却非常强大。 1)提供API可以让你写出测试结果明确的可重用单元测试用例。 2)提供了单元测试用例成批运行的功能。 3...
+
+JUnit单元测试基础要点
+ hzc543806053
+
+ 1.8万
+
+JUnit单元测试基础要点   1.JUnit是一种测试代码的框架，测试的目的是：保证代码没错，而不是保证代码正确。 2.测试类一般不要和目标类放在一起，但编译成的class文件是放在一起的。 ...
+
+Junit4单元测试
+2015年01月25日 243KB 下载
+
+ 
+ViewStub和include
+ andych008
+
+ 526
+
+ViewStub是什么？它就是一个占位标记，它只有被inflate()之后才加载
+
+JUnit自动化单元测试（一）：生成测试类
+ u012882327
+
+ 3284
+
+废话不多说，直接上步骤。第一步：导入Junit4包到项目中。可以自己到网上下载junit4 jar包，也可以用JDE自带junit测试工具包。以Eclipse为例第二步，创建测试类。现有Calcuat...
+
+
+Java中单元测试（Junit4和Mockito）和数据库JDBC连接示例
+ houwenbin1986
+
+ 369
+
+首先添加依赖包： 保证仓库为jcenter() buildscript {     repositories {         jcenter()     }     depen...
+
+Junit 单元测试
+2017年06月09日 5KB 下载
+
+ 
+个人资料
+
+andycpp
+
+关注
+原创
+73
+粉丝
+629
+喜欢
+57
+评论
+387
+等级： 访问： 106万+ 积分： 6159 排名： 5471
+
+最新文章
+Java线程之fork/join框架
+Java线程之CompletionService
+Java线程之FutureTask
+Java线程之立刻处理刚完成的任务
+Java线程之ExecutorService.invokeAny()
+个人分类
+JAVA技术 59篇
+Mysql相关 1篇
+代码收藏 2篇
+常见算法 14篇
+经典文章 4篇
+随笔 9篇
+展开
+
+归档
+2013年5月 3篇
+2013年4月 6篇
+2013年2月 4篇
+2012年1月 1篇
+2011年5月 1篇
+2010年9月 7篇
+2009年8月 1篇
+2009年7月 7篇
+2009年4月 1篇
+2009年1月 1篇
+2008年10月 1篇
+2008年9月 5篇
+2008年8月 3篇
+2007年9月 3篇
+2007年8月 6篇
+2007年7月 11篇
+2007年6月 5篇
+2007年2月 1篇
+2006年10月 7篇
+2006年9月 6篇
+2006年8月 1篇
+2006年6月 1篇
+2006年4月 2篇
+2006年3月 6篇
+2006年2月 3篇
+展开

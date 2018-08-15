@@ -1,0 +1,162 @@
+package naming conversation (list need to be updated):
+
+com.mycomapp.backend.spring					
+com.mycomapp.batch					
+*3	com.mycomapp.bigdata.ai				
+*3	com.mycomapp.bigdata.hadoop				
+*1	com.mycomapp.bigdata.python				
+*1	com.myccmapp.bigdata.scala				
+*2	com.mycomapp.cloudStream				
+com.myapp.config.properties				
+*2	com.mycomapp.config.yml				
+com.myccnapp.dataRest				
+com.mycomapp.db.cache.redis			
+com.mycomapp.db.conn.jdbc				
+*3	com.mycomapp.db.druid				
+*3	com.mycomapp.db.jpa				
+*3	com.myapp.db-multidatasources				
+*1	com.mycomapp.db.sp				
+com.mycomapp.dbDerby				
+com.mycomapp.dbH2					
+*2	com.mycomapp.dbHsqldb				
+*1	com.ycomapp.dbMongo				
+com.mycomapp.design.proxy.dynamic					
+*1	com.mycomapp.frontend.angularos				
+*1	com.mycomapp.frontend.jsf				
+com.mycomapp.frontend.react					
+com.mycomapp.frontend.responsive					
+com.mycomapp.frontend.rest					
+com.mycomapp.frontend.vue					
+com.mycomapp.integration					
+*3	com.comapp.j2ee.jndi				
+*2	com.mycomapp.j2se.abstractCIass				
+*2	com.mycomapp.j2se.annotation				
+com.mycomapp.j2se.array					
+com.mycomapp.j2se.boxing					
+com.mycomapp.j2se.collection					
+com.mycomapp.j2se.comparable					
+com.mycomapp.j2se.datastructureAIgorithm					
+*2	com.mycomapp.j2se.enumeration				
+*2	com.mycomapp.j2se.generic				
+*2	com.mycomapp.j2se.interfaceCIass				
+com.mycomapp.j2se.ioStream					
+*3	com.ycomapp.j2se.multiThread				
+com.mycomapp.j2se.network.udpTcp					
+com.mycomapp.j2se.object					
+*2	com.mycomapp.j2se.refIection				
+*2	com.mycomapp.j2se.serializable				
+*2	com.mycomapp.java.javabean				
+com.mycomapp.java.servlet			
+*1-OK com.mycomapp.junit4				
+*2	com.mycomapp.kafka				
+*2	com.mycomapp.Iinux.shell				
+com.mycomapp.mail					
+*2	com.mycomapp.messenger.json				
+*3	com.mycomapp.messenger.xml				
+*3	com.mycomapp.mobile.android				
+*1	com.mycomapp.mvc				
+com.mycomapp.mybatis					
+*1 com.mycomapp.office.icepdf	-----	not	yet	migrate
+*2	com.mycomapp.office.poi				
+*1-OK com.m*omapp.SIf4j				
+*3	com.ycomapp.socialntw.weixin				
+*2	com.mycomapp.ssmdbs				
+*1-OK com.mycomapp.ssmdbs.proj1-SsmH2				
+*1-OK com.mycomapp.ssmdbs.SoapWebserviceSpringBoot					
+*2	com.mycomapp.templateEngine.thymeleaf				
+*2	com.mycomapp.templateEngine.pagemaker				
+com.mycomapp.web.el					
+*2	com.mycomapp.web.jsp				
+com.mycomapp.web.page.pageHelper					
+*1	com.mycomapp.webServices.restful				
+*1	com.mycomapp.webServices.soap				
+*2	com.mycomapp.z_cloud				
+*2	com.mycomapp.z_cloudDataFlow				
+*2	com.mycomapp.z_docker
+*1	com.mycomapp.z_frontend.vaddin	-----	not	yet	migrate
+*2	com.mycomapp.z_github	
+*2	com.mycomapp.z_jenkins
+com.mycomapp.z_others.microservices			
+com.mycomapp.z_others
+com.mycomapp.z_others.highAvaliaCap
+----------------------------------------------------------
+
+*1	com.mycomapp.bigdata.python				
+*1	com.myccmapp.bigdata.scala				
+*1	com.mycomapp.db.sp				
+*1	com.ycomapp.dbMongo				
+*1	com.mycomapp.frontend.angularos				
+*1	com.mycomapp.frontend.jsf				
+*1	com.mycomapp.mvc				
+*1	com.mycomapp.webServices.restful				
+*1	com.mycomapp.webServices.soap				
+*1	com.mycomapp.z_frontend.vaddin	-----	not	yet	migrate
+*1 com.mycomapp.office.icepdf	-----	not	yet	migrate	
+*1-OK com.m*omapp.SIf4j					
+*1-OK com.mycomapp.junit4					
+*1-OK com.mycomapp.ssmdbs.proj1-SsmH2					
+*1-OK com.mycomapp.ssmdbs.SoapWebserviceSpringBoot					
+*2	com.mycomapp.cloudStream				
+*2	com.mycomapp.config.yml				
+*2	com.mycomapp.dbHsqldb				
+*2	com.mycomapp.j2se.abstractCIass				
+*2	com.mycomapp.j2se.annotation				
+*2	com.mycomapp.j2se.enumeration				
+*2	com.mycomapp.j2se.generic				
+*2	com.mycomapp.j2se.interfaceCIass				
+*2	com.mycomapp.j2se.refIection				
+*2	com.mycomapp.j2se.serializable				
+*2	com.mycomapp.java.javabean				
+*2	com.mycomapp.kafka				
+*2	com.mycomapp.Iinux.shell				
+*2	com.mycomapp.messenger.json				
+*2	com.mycomapp.office.poi				
+*2	com.mycomapp.ssmdbs				
+*2	com.mycomapp.templateEngine.thymeleaf				
+*2	com.mycomapp.templateEngine.pagemaker				
+*2	com.mycomapp.web.jsp				
+*2	com.mycomapp.z_cloud				
+*2	com.mycomapp.z_cloudDataFlow				
+*2	com.mycomapp.z_docker				
+*2	com.mycomapp.z_github				
+*2	com.mycomapp.z_jenkins				
+*3	com.mycomapp.bigdata.ai				
+*3	com.mycomapp.bigdata.hadoop				
+*3	com.mycomapp.db.druid				
+*3	com.mycomapp.db.jpa				
+*3	com.myapp.db-multidatasources				
+*3	com.comapp.j2ee.jndi				
+*3	com.ycomapp.j2se.multiThread				
+*3	com.mycomapp.messenger.xml				
+*3	com.mycomapp.mobile.android				
+*3	com.ycomapp.socialntw.weixin				
+com.myapp.config.properties					
+com.myccnapp.dataRest					
+com.mycomapp.backend.spring					
+com.mycomapp.batch					
+com.mycomapp.db.cache.redis					
+com.mycomapp.db.conn.jdbc					
+com.mycomapp.dbDerby					
+com.mycomapp.dbH2					
+com.mycomapp.design.proxy.dynamic					
+com.mycomapp.frontend.react					
+com.mycomapp.frontend.responsive					
+com.mycomapp.frontend.rest					
+com.mycomapp.frontend.vue					
+com.mycomapp.integration					
+com.mycomapp.j2se.array					
+com.mycomapp.j2se.boxing					
+com.mycomapp.j2se.collection					
+com.mycomapp.j2se.comparable					
+com.mycomapp.j2se.datastructureAIgorithm					
+com.mycomapp.j2se.ioStream					
+com.mycomapp.j2se.network.udpTcp					
+com.mycomapp.j2se.object					
+com.mycomapp.java.servlet					
+com.mycomapp.mail					
+com.mycomapp.mybatis					
+com.mycomapp.web.el					
+com.mycomapp.web.page.pageHelper					
+com.mycomapp.z_others					
+com.mycomapp.z_others.highAvaliaCap					
+com.mycomapp.z_others.microservices								
